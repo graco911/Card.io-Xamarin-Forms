@@ -30,12 +30,6 @@ namespace AppDemo.Droid
             {
                 // Be sure to JavaCast to a CreditCard (normal cast won‘t work)      
                 InfoShareHelper.Instance.CardInfo = data.GetParcelableExtra(CardIOActivity.ExtraScanResult).JavaCast<CreditCard>();
-
-                if (InfoShareHelper.Instance.CardInfo != null)
-                {
-
-                }
-
             }
             else
             {

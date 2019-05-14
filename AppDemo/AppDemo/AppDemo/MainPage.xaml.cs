@@ -19,5 +19,10 @@ namespace AppDemo
         {
             DependencyService.Get<ICardService>().StartCapture();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+        }
     }
 }
