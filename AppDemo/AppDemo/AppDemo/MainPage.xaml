@@ -9,12 +9,22 @@
         <!--  Place new controls here  -->
         <Button
             BackgroundColor="Purple"
-            Clicked="onScanCard"
+            Command="{Binding CardCommand}"
             HorizontalOptions="CenterAndExpand"
             Text="Scan my Card"
             TextColor="White"
-            VerticalOptions="CenterAndExpand"
+            VerticalOptions="Center"
             WidthRequest="200" />
+
+        <Label
+            HorizontalOptions="Center"
+            Text="{Binding CardName}"
+            VerticalOptions="Center" />
+
+        <Label
+            HorizontalOptions="Center"
+            Text="{Binding CardNumber}"
+            VerticalOptions="Center" />
     </StackLayout>
 
 </ContentPage>

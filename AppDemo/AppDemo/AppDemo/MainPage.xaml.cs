@@ -1,9 +1,6 @@
 ﻿using AppDemo.DependencyServices;
+using AppDemo.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace AppDemo
@@ -13,12 +10,13 @@ namespace AppDemo
         public MainPage()
         {
             InitializeComponent();
+
+            AppViewModel = new AppViewModel();
+
+            BindingContext = AppViewModel;
         }
 
-        private void onScanCard(object sender, EventArgs e)
-        {
-            DependencyService.Get<ICardService>().StartCapture();
-        }
+        public static AppViewModel AppViewModel { get; set; }
 
         protected override void OnAppearing()
         {

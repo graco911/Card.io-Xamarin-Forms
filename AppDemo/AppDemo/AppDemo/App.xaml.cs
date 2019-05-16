@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppDemo.DependencyServices;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,11 +8,15 @@ namespace AppDemo
 {
     public partial class App : Application
     {
+        private MainPage main;
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            main = new MainPage();
+
+            MainPage = main;
         }
 
         protected override void OnStart()
@@ -27,6 +32,7 @@ namespace AppDemo
         protected override void OnResume()
         {
             // Handle when your app resumes
+            
         }
     }
 }

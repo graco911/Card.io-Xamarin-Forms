@@ -5,7 +5,8 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using Android.Content;
-using static AppDemo.Droid.DependencyServices.CardService;
+using AppDemo.Droid.Dependencies;
+using AppDemo.Models;
 
 namespace AppDemo.Droid
 {
@@ -30,6 +31,15 @@ namespace AppDemo.Droid
             {
                 // Be sure to JavaCast to a CreditCard (normal cast won‘t work)      
                 InfoShareHelper.Instance.CardInfo = data.GetParcelableExtra(CardIOActivity.ExtraScanResult).JavaCast<CreditCard>();
+
+                MainPage.AppViewModel.CardObject = new CreditCard_PCL
+                {
+                    cardholderName = InfoShareHelper.Instance.CardInfo.CardholderName,
+                    cardNumber = InfoShareHelper.Instance.CardInfo.CardNumber,
+                    ccv = InfoShareHelper.Instance.CardInfo.Cvv,
+                    expr = InfoShareHelper.Instance.CardInfo.ExpiryMonth.ToString() + InfoShareHelper.Instance.CardInfo.ExpiryYear.ToString(),
+                    redactedCardNumber = InfoShareHelper.Instance.CardInfo.RedactedCardNumber
+                };
             }
             else
             {
